@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flying Piggy</title>
+    <!-- Use a fun font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas" width="400" height="600"></canvas>
+        
+        <div id="ui-layer">
+            <div id="score-display">0</div>
+            
+            <div id="start-screen" class="overlay">
+                <h1>Flying Piggy</h1>
+                <p>Tap or press Space to flap!</p>
+                <div class="high-score-text">High Score: <span id="start-highscore">0</span></div>
+                <button id="start-btn">Start Game</button>
+            </div>
+            
+            <div id="game-over-screen" class="overlay hidden">
+                <h2>Game Over!</h2>
+                <p>Score: <span id="final-score">0</span></p>
+                <div class="high-score-text">High Score: <span id="gameover-highscore">0</span></div>
+                <button id="restart-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
