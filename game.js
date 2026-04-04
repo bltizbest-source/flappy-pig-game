@@ -290,11 +290,14 @@ const bg = {
         }
     },
     draw() {
-        // Sky gradient
-        let gradient = ctx.createLinearGradient(0, 0, 0, CH);
-        gradient.addColorStop(0, "#87CEEB");
-        gradient.addColorStop(1, "#E0F6FF");
-        ctx.fillStyle = gradient;
+        // Sky gradient cache
+        if (!this.cachedGradient || this.cachedCH !== CH) {
+            this.cachedGradient = ctx.createLinearGradient(0, 0, 0, CH);
+            this.cachedGradient.addColorStop(0, "#87CEEB");
+            this.cachedGradient.addColorStop(1, "#E0F6FF");
+            this.cachedCH = CH;
+        }
+        ctx.fillStyle = this.cachedGradient;
         ctx.fillRect(0, 0, CW, CH);
 
         // Clouds
@@ -399,7 +402,6 @@ function playCrashSound() {
 // --- GAME LOOP & CONTROLS ---
 
 function draw() {
-    ctx.clearRect(0, 0, CW, CH);
     bg.draw();
     obstacles.draw();
     pig.draw();
